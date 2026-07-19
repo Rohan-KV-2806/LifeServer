@@ -1,103 +1,168 @@
 # LifeServer
 
-A simple **Electron-based** local development server with **live reload** (SSE) and a clean GUI. Built because VS Code's Live Server wasn't working properly — so I made my own!
+> A lightweight **Electron-based local development server** with **live reload**, automatic port fallback, and a simple desktop interface.
 
-Works on **macOS**, **Linux**, and **Windows**.
+LifeServer is a desktop application that lets you serve any local website with automatic browser refresh using **Server-Sent Events (SSE)**. It was originally built after VS Code's Live Server stopped working for me, but became a way to learn how development servers, HTTP, file watching, and Electron work under the hood.
+
+Supports **Windows**, **Linux**, and **macOS**.
+
+---
+
+## Downloads
+
+Download the latest version from the **Releases** page.
+
+### Available Builds
+
+-  Windows Installer (`.exe`)
+-  Linux AppImage (`.AppImage`)
+-  macOS (currently no build available)
+
+ **Latest Release**
+
+https://github.com/Rohan-KV-2806/LifeServer/releases/latest
 
 ---
 
 ## Features
 
-- **One-click Start/Stop** — Launch and kill the server from a simple UI
-- **Live Reload** — Save a file, browser auto-refreshes via Server-Sent Events
-- **Auto Port Fallback** — If your port is taken, it tries the next one
-- **Custom Host Binding** — Bind to `localhost`, `0.0.0.0`, `127.0.0.1`, or any interface
-- **Custom Port & Directory** — Serve any folder on any port
-- **MIME-Type Support** — Serves HTML, CSS, JS, images, fonts, JSON, and more
-- **Error Logging** — Server status and errors shown right in the UI
-- **Cross-Platform** — Runs on macOS, Linux, and Windows
+- 🚀 One-click Start/Stop server
+- 🔄 Live Reload using Server-Sent Events (SSE)
+- 🌐 Custom host binding (`localhost`, `127.0.0.1`, `0.0.0.0`, or any valid interface)
+- 🔢 Automatic port fallback if the selected port is already in use
+- 📁 Serve any local directory
+- 📄 MIME type detection for HTML, CSS, JavaScript, JSON, images, fonts, SVG, and more
+- 📝 Built-in server status and error logging
+- 🖥 Cross-platform desktop application (Electron)
 
 ---
+
 
 ## Project Structure
 
-```
+```text
 LifeServer/
-├── index.js              # Main process (Electron) — HTTP server + live reload
-├── preload.js            # Bridges IPC between main & renderer
-├── package.json          # Project config & dependencies
-├── README.md             # You're here!
+├── index.js              # Electron main process & HTTP server
+├── preload.js            # Secure IPC bridge
+├── package.json          # Project configuration
+├── README.md
 ├── renderer/
-│   ├── index.html        # The GUI layout
-│   ├── renderer.js       # Renderer logic — button handlers, status updates
-│   └── style.css         # Styling for the UI
-└── node_modules/         # Dependencies (Electron)
+│   ├── index.html        # User interface
+│   ├── renderer.js       # UI logic
+│   └── style.css         # Styling
+└── node_modules/
 ```
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| **Runtime** | Node.js |
-| **Desktop Shell** | [Electron](https://www.electronjs.org/) |
-| **HTTP Server** | Node.js built-in `http` module |
-| **Live Reload** | SSE (Server-Sent Events) |
-| **File Watching** | `fs.watch` (recursive) |
-| **Frontend** | HTML, CSS, Vanilla JavaScript |
+| Component | Technology |
+|------------|------------|
+| Runtime | Node.js |
+| Desktop Application | Electron |
+| HTTP Server | Node.js `http` |
+| Live Reload | Server-Sent Events (SSE) |
+| File Watching | `fs.watch()` |
+| Frontend | HTML, CSS, Vanilla JavaScript |
 
-No external server dependencies — everything is powered by Node.js core modules.
+No external web server frameworks are used. The server is built entirely with Node.js core modules.
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v16+)
-- npm (comes with Node.js)
+
+- Node.js 16+
+- npm
 
 ### Installation
 
 ```bash
-# Clone the repo
 git clone https://github.com/Rohan-KV-2806/LifeServer.git
+
 cd LifeServer
 
-# Install dependencies
 npm install
 ```
 
-### Usage
+### Run
 
 ```bash
 npm start
 ```
 
-1. Enter a **port** (default: `5500`)
-2. Enter a **host** to bind to (default: `localhost` — use `0.0.0.0` to allow access from other devices on your network)
-3. Enter a **directory path** to serve (e.g. `.` for current folder, or an absolute path like `D:\Projects\Online-Gallery`)
-4. Click **▶ Start Server**
-5. Open the displayed URL in your browser
-6. Edit files — the browser auto-reloads!
-7. Click **⏹ Stop Server** when done
+---
+
+## 📖 Usage
+
+1. Launch LifeServer.
+2. Choose the **directory** you want to serve.
+3. Select the **host**.
+
+   Examples:
+
+   - `localhost`
+   - `127.0.0.1`
+   - `0.0.0.0`
+
+4. Choose a **port** (default: **5500**).
+5. Click **Start Server**.
+6. Open the generated URL.
+7. Edit your files and watch the browser refresh automatically.
+8. Click **Stop Server** when finished.
+
+---
+
+## How It Works
+
+LifeServer combines several Node.js technologies to provide a lightweight development experience.
+
+- Electron provides the desktop application.
+- Node.js hosts the HTTP server.
+- `fs.watch()` monitors project files.
+- Server-Sent Events (SSE) notify connected browsers when files change.
+- Browsers automatically reload without requiring extensions or external tools.
 
 ---
 
 ## Why I Built This
 
-I was learning HTML, CSS, and JavaScript while building a webpage, and VS Code's Live Server extension stopped working properly. Instead of wrestling with it, I decided to build my own and learned about Electron, HTTP servers, file watching, and real-time browser communication along the way!
+While learning HTML, CSS, and JavaScript, I encountered issues with VS Code's Live Server extension.
+
+Rather than searching for another alternative, I decided to build one myself.
+
+The project became an opportunity to learn:
+
+- Electron
+- HTTP servers
+- File systems
+- File watching
+- Server-Sent Events
+- Desktop application development
+- Inter-process communication (IPC)
+
+---
+
+
+## AI Usage
+
+AI tools were used as development assistants throughout the project.
+
+They were primarily used for:
+
+- Learning Electron and Node.js concepts
+- Debugging issues
+- Improving CSS
+- Proofreading documentation
+
+All application architecture, implementation, integration, testing, and final decisions were completed by me.
 
 ---
 
 ## Author
 
-**Rohan** ([@Rohan-KV-2806](https://github.com/Rohan-KV-2806))
+**Rohan**
 
-## AI Usage
-
-I used AI tools to assist in building this project:
-
-- DeepSeek — helped create and improve the CSS, and debug errors.
-- DeepL — helped correct grammar and polish the writing in the README.
-- Qwen — helped me learn Node.js and Electron throughout development.
+GitHub: https://github.com/Rohan-KV-2806
