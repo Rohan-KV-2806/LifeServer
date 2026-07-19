@@ -1,4 +1,4 @@
-# 🖥️ LifeServer
+# LifeServer
 
 A simple **Electron-based** local development server with **live reload** (SSE) and a clean GUI. Built because VS Code's Live Server wasn't working properly — so I made my own!
 
@@ -32,7 +32,7 @@ LifeServer/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -47,7 +47,7 @@ No external server dependencies — everything is powered by Node.js core module
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/) (v16+)
