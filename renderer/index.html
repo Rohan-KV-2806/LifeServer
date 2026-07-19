@@ -19,6 +19,7 @@
       <li>Enter the <strong>directory path</strong> of your project (or leave <code>.</code> for current folder).</li>
       <li>Click <strong>"Start Server"</strong> and your site will open in the browser with live reload.</li>
     </ol>
+
     <div class="steps">
       <div class="card">
         <label>Port</label>
@@ -28,9 +29,17 @@
         <label>Directory</label>
         <input type="text" id="dir" value="." placeholder="e.g. ./my-project" />
       </div>
-      <button id="startBtn">Start Server</button>
+
+      <div class="btn-group">
+        <button id="startBtn">▶ Start Server</button>
+        <button id="stopBtn" disabled>⏹ Stop Server</button>
+      </div>
     </div>
-    <p id="status"></p>
+
+    <div id="status" class="status-box"></div>
+    <div id="serverInfo" class="server-info"></div>
   </div>
+
+  <script src="renderer.js"></script>
 </body>
 </html>

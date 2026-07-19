@@ -9,7 +9,7 @@ body {
   background: #f1f5f9;
   display: flex;
   justify-content: center;
-  padding: 60px 20px;
+  padding: 40px 20px;
 }
 
 #app {
@@ -82,18 +82,103 @@ h1 {
   background: transparent;
 }
 
-#startBtn {
-  width: 100%;
+.card input:focus {
+  color: #2563eb;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+#startBtn,
+#stopBtn {
+  flex: 1;
   padding: 12px;
   border: none;
   border-radius: 10px;
-  background: #2563eb;
-  color: white;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+#startBtn {
+  background: #2563eb;
+  color: white;
 }
 
 #startBtn:hover {
   background: #1d4ed8;
+}
+
+#startBtn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+#stopBtn {
+  background: #ef4444;
+  color: white;
+}
+
+#stopBtn:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+#stopBtn:disabled {
+  background: #e2e8f0;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.status-box {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  display: none;
+}
+
+.status-box.success {
+  display: block;
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.status-box.error {
+  display: block;
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.status-box.info {
+  display: block;
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.server-info {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #64748b;
+  display: none;
+}
+
+.server-info.show {
+  display: block;
+}
+
+.server-info a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.server-info a:hover {
+  text-decoration: underline;
 }
