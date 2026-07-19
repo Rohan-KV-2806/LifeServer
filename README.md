@@ -26,14 +26,14 @@ https://github.com/Rohan-KV-2806/LifeServer/releases/latest
 
 ## Features
 
-- 🚀 One-click Start/Stop server
-- 🔄 Live Reload using Server-Sent Events (SSE)
-- 🌐 Custom host binding (`localhost`, `127.0.0.1`, `0.0.0.0`, or any valid interface)
-- 🔢 Automatic port fallback if the selected port is already in use
-- 📁 Serve any local directory
-- 📄 MIME type detection for HTML, CSS, JavaScript, JSON, images, fonts, SVG, and more
-- 📝 Built-in server status and error logging
-- 🖥 Cross-platform desktop application (Electron)
+-  One-click Start/Stop server
+-  Live Reload using Server-Sent Events (SSE)
+-  Custom host binding (`localhost`, `127.0.0.1`, `0.0.0.0`, or any valid interface)
+-  Automatic port fallback if the selected port is already in use
+-  Serve any local directory
+-  MIME type detection for HTML, CSS, JavaScript, JSON, images, fonts, SVG, and more
+-  Built-in server status and error logging
+-  Cross-platform desktop application (Electron)
 
 ---
 
@@ -55,7 +55,7 @@ LifeServer/
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Component | Technology |
 |------------|------------|
@@ -70,7 +70,7 @@ No external web server frameworks are used. The server is built entirely with No
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -95,7 +95,7 @@ npm start
 
 ---
 
-## 📖 Usage
+## Usage
 
 1. Launch LifeServer.
 2. Choose the **directory** you want to serve.
