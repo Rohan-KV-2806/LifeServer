@@ -14,11 +14,15 @@ const MIME_TYPES = {
   '.js': 'text/javascript',
   '.json': 'application/json',
   '.png': 'image/png',
-  '.jpg': 'image/jpg',
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.gif': 'image/gif',
   '.svg': 'image/svg+xml',
+  '.webp': 'image/webp',
+  '.avif': 'image/avif',
+  '.bmp': 'image/bmp',
+  '.tiff': 'image/tiff',
+  '.tif': 'image/tiff',
   '.ico': 'image/x-icon',
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
@@ -104,7 +108,10 @@ function startServer(port, directory) {
         return
       }
 
-      let filePath = path.join(dir, url.pathname === '/' ? 'index.html' : url.pathname)
+      // Decode percent-encoded characters (e.g. %20 → space) so files in
+      // folders with spaces like "gallery images" are found on disk
+      const decodedPath = decodeURIComponent(url.pathname)
+      let filePath = path.join(dir, decodedPath === '/' ? 'index.html' : decodedPath)
       const ext = path.extname(filePath).toLowerCase()
 
       // If path has no extension and is a directory, try index.html
