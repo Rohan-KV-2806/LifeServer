@@ -5,17 +5,42 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build":{
+    "appId": "com.rohan-kv-2806",
+    "productName": "LifeServer",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"]
+    }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Rohan-KV-2806/LifeServer.git"
   },
   "devDependencies": {
-    "electron": "^28.0.0"
+    "electron": "^28.0.0",
+    "electron-builder": "^26.15.3"
   },
   "keywords": [],
-  "author": "Rohan-KV-2806",
+  "author": {
+    "name": "Rohan-KV-2806",
+    "email": "rohankv28062004@gmail.com"
+  },
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
