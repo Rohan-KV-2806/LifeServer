@@ -77,7 +77,7 @@ function notifyReload() {
   })
 }
 
-function startServer(port, directory) {
+function startServer(port, host, directory) {
   try {
     const dir = path.resolve(directory)
 
@@ -85,8 +85,10 @@ function startServer(port, directory) {
       return { success: false, error: `Directory not found: ${dir}` }
     }
 
+    const resolvedHost = host || 'localhost'
+
     server = http.createServer((req, res) => {
-      const url = new URL(req.url, `http://localhost:${port}`)
+      const url = new URL(req.url, `http://${resolvedHost}:${port}`)
 
       // SSE endpoint for live reload
       if (url.pathname === '/__livereload') {
@@ -133,7 +135,7 @@ function startServer(port, directory) {
     return new Promise((resolve) => {
       // Try listening; if port is taken, try next port
       const tryListen = (p) => {
-        server.listen(p, () => {
+        server.listen(p, resolvedHost, () => {
           // Start watching directory for changes
           try {
             if (fileWatcher) fileWatcher.close()
@@ -146,7 +148,7 @@ function startServer(port, directory) {
             console.warn('File watching limited:', e.message)
           }
 
-          resolve({ success: true, port: p, directory: dir, url: `http://localhost:${p}` })
+          resolve({ success: true, port: p, host: resolvedHost, directory: dir, url: `http://${resolvedHost}:${p}` })
         })
 
         server.on('error', (err) => {
@@ -194,7 +196,7 @@ function stopServer() {
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 520,
-    height: 680,
+    height: 720,
     resizable: false,
     webPreferences: {
       nodeIntegration: false,
@@ -207,8 +209,8 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
-  ipcMain.handle('start-server', (_event, port, directory) => {
-    return startServer(port, directory)
+  ipcMain.handle('start-server', (_event, port, host, directory) => {
+    return startServer(port, host, directory)
   })
 
   ipcMain.handle('stop-server', () => {

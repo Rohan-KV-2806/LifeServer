@@ -1,6 +1,7 @@
 const startBtn = document.getElementById('startBtn')
 const stopBtn = document.getElementById('stopBtn')
 const portInput = document.getElementById('port')
+const hostInput = document.getElementById('host')
 const dirInput = document.getElementById('dir')
 const statusEl = document.getElementById('status')
 const serverInfoEl = document.getElementById('serverInfo')
@@ -23,17 +24,19 @@ function setButtonsState(running) {
   startBtn.disabled = running
   stopBtn.disabled = !running
   portInput.disabled = running
+  hostInput.disabled = running
   dirInput.disabled = running
 }
 
 startBtn.addEventListener('click', async () => {
   const port = portInput.value.trim() || '5500'
+  const host = hostInput.value.trim() || 'localhost'
   const dir = dirInput.value.trim() || '.'
 
   startBtn.textContent = '⏳ Starting...'
   startBtn.disabled = true
 
-  const result = await window.electronAPI.startServer(port, dir)
+  const result = await window.electronAPI.startServer(port, host, dir)
 
   if (result.success) {
     setStatus('✅ Server running on port ' + result.port, 'success')

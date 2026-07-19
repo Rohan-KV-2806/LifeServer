@@ -2,6 +2,8 @@
 
 A simple **Electron-based** local development server with **live reload** (SSE) and a clean GUI. Built because VS Code's Live Server wasn't working properly — so I made my own!
 
+Works on **macOS**, **Linux**, and **Windows**.
+
 ---
 
 ## Features
@@ -9,9 +11,11 @@ A simple **Electron-based** local development server with **live reload** (SSE) 
 - **One-click Start/Stop** — Launch and kill the server from a simple UI
 - **Live Reload** — Save a file, browser auto-refreshes via Server-Sent Events
 - **Auto Port Fallback** — If your port is taken, it tries the next one
+- **Custom Host Binding** — Bind to `localhost`, `0.0.0.0`, `127.0.0.1`, or any interface
 - **Custom Port & Directory** — Serve any folder on any port
 - **MIME-Type Support** — Serves HTML, CSS, JS, images, fonts, JSON, and more
 - **Error Logging** — Server status and errors shown right in the UI
+- **Cross-Platform** — Runs on macOS, Linux, and Windows
 
 ---
 
@@ -71,11 +75,12 @@ npm start
 ```
 
 1. Enter a **port** (default: `5500`)
-2. Enter a **directory path** to serve (e.g. `.` for current folder, or an absolute path like `D:\Projects\Online-Gallery`)
-3. Click **▶ Start Server**
-4. Open the displayed URL in your browser
-5. Edit files — the browser auto-reloads!
-6. Click **⏹ Stop Server** when done
+2. Enter a **host** to bind to (default: `localhost` — use `0.0.0.0` to allow access from other devices on your network)
+3. Enter a **directory path** to serve (e.g. `.` for current folder, or an absolute path like `D:\Projects\Online-Gallery`)
+4. Click **▶ Start Server**
+5. Open the displayed URL in your browser
+6. Edit files — the browser auto-reloads!
+7. Click **⏹ Stop Server** when done
 
 ---
 
@@ -85,7 +90,7 @@ I was learning HTML, CSS, and JavaScript while building a webpage, and VS Code's
 
 ---
 
-##  Author
+## Author
 
 **Rohan** ([@Rohan-KV-2806](https://github.com/Rohan-KV-2806))
 
@@ -93,6 +98,6 @@ I was learning HTML, CSS, and JavaScript while building a webpage, and VS Code's
 
 I used AI tools to assist in building this project:
 
-    DeepSeek — helped create and improve the CSS, and debug errors.
-    DeepL — helped correct grammar and polish the writing in the README.
-    Qwen — helped me learn Node.js and Electron throughout development.
+- DeepSeek — helped create and improve the CSS, and debug errors.
+- DeepL — helped correct grammar and polish the writing in the README.
+- Qwen — helped me learn Node.js and Electron throughout development.

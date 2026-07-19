@@ -12,10 +12,11 @@
     <p class="about">
       LifeServer is a very simple live server application that can launch a
       development local server with live reload feature for static &amp; dynamic
-      pages.
+      pages. Works on <strong>macOS</strong>, <strong>Linux</strong>, and <strong>Windows</strong>.
     </p>
     <ol class="howto">
       <li>Enter the <strong>port number</strong> you want the server to run on.</li>
+      <li>Enter the <strong>host</strong> to bind to (e.g. <code>localhost</code>, <code>0.0.0.0</code>, <code>127.0.0.1</code>).</li>
       <li>Enter the <strong>directory path</strong> of your project (or leave <code>.</code> for current folder).</li>
       <li>Click <strong>"Start Server"</strong> and your site will open in the browser with live reload.</li>
     </ol>
@@ -24,6 +25,10 @@
       <div class="card">
         <label>Port</label>
         <input type="number" id="port" value="5500" placeholder="e.g. 5500" />
+      </div>
+      <div class="card">
+        <label>Host</label>
+        <input type="text" id="host" value="localhost" placeholder="e.g. localhost, 0.0.0.0" />
       </div>
       <div class="card">
         <label>Directory</label>
